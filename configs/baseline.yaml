@@ -1,0 +1,43 @@
+building_id: "office_reference_building_01"
+
+simulation:
+  idf_path: "data/idf/baseline.idf"
+  epw_path: "data/epw/USA_CA_San.Francisco.Intl.AP.724940_TMY3.epw"
+  primary_zone_name: "SPACE1-1"
+  run_mode: "baseline"
+
+decision_cadence:
+  interval_minutes: 15
+
+comfort:
+  target_pmv_band: [-0.5, 0.5]
+  hard_pmv_band: [-1.5, 1.5]
+
+energy:
+  peak_demand_threshold_kw: 100.0
+  carbon_aware: false
+
+actuators:
+  - logical_name: "zone1_heating_setpoint"
+    component_type: "Schedule:Compact"
+    control_type: "Schedule Value"
+    key: "HTGSETP_SCH"
+    min: 15.0
+    max: 23.0
+
+  - logical_name: "zone1_cooling_setpoint"
+    component_type: "Schedule:Compact"
+    control_type: "Schedule Value"
+    key: "CLGSETP_SCH"
+    min: 22.0
+    max: 30.0
+
+llm:
+  model_name: "llama3-8b-instruct"
+  endpoint: null  # Optional in baseline mode
+  max_tool_calls_per_cycle: 6
+  cycle_timeout_seconds: 8.0
+
+storage:
+  backend: "duckdb"
+  path: "data/baseline_run.duckdb"

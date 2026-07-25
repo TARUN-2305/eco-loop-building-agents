@@ -1,0 +1,89 @@
+{
+  "baseline": {
+    "run_id": "bench_baseline",
+    "run_mode": "baseline",
+    "total_timesteps": 3558,
+    "total_time_sec": 0.89,
+    "kpi": {
+      "run_id": "bench_baseline",
+      "total_kwh": 0.0,
+      "pmv_compliance_pct": 16.96,
+      "fallback_rate_pct": 0.0
+    },
+    "health": {
+      "status": "nominal",
+      "total_cycles": 0,
+      "fallback_cycles": 0,
+      "fallback_pct": 0.0,
+      "consecutive_llm_failures": 0,
+      "degraded_mode_active": false
+    },
+    "mem_before_mb": 44.81,
+    "mem_after_mb": 109.49,
+    "latencies": {
+      "avg_ms": 0.0,
+      "p95_ms": 0.0,
+      "p99_ms": 0.0,
+      "worst_ms": 0.0
+    },
+    "db_path": "data/bench_bench_baseline.sqlite"
+  },
+  "agent_clean": {
+    "run_id": "bench_agent_clean",
+    "run_mode": "agent",
+    "total_timesteps": 3558,
+    "total_time_sec": 146.787,
+    "kpi": {
+      "run_id": "bench_agent_clean",
+      "total_kwh": 0.0,
+      "pmv_compliance_pct": 16.96,
+      "fallback_rate_pct": 100.0
+    },
+    "health": {
+      "status": "degraded",
+      "total_cycles": 3,
+      "fallback_cycles": 3,
+      "fallback_pct": 100.0,
+      "consecutive_llm_failures": 3,
+      "degraded_mode_active": true
+    },
+    "mem_before_mb": 106.85,
+    "mem_after_mb": 112.23,
+    "latencies": {
+      "avg_ms": 216.98,
+      "p95_ms": 0.4,
+      "p99_ms": 1.88,
+      "worst_ms": 55813.04
+    },
+    "db_path": "data/bench_bench_agent_clean.sqlite"
+  },
+  "agent_degraded": {
+    "run_id": "bench_agent_degraded",
+    "run_mode": "agent",
+    "total_timesteps": 3558,
+    "total_time_sec": 9.285,
+    "kpi": {
+      "run_id": "bench_agent_degraded",
+      "total_kwh": 0.0,
+      "pmv_compliance_pct": 16.96,
+      "fallback_rate_pct": 100.0
+    },
+    "health": {
+      "status": "degraded",
+      "total_cycles": 4,
+      "fallback_cycles": 4,
+      "fallback_pct": 100.0,
+      "consecutive_llm_failures": 4,
+      "degraded_mode_active": true
+    },
+    "mem_before_mb": 108.55,
+    "mem_after_mb": 113.32,
+    "latencies": {
+      "avg_ms": 12.31,
+      "p95_ms": 0.47,
+      "p99_ms": 0.87,
+      "worst_ms": 4069.05
+    },
+    "db_path": "data/bench_bench_agent_degraded.sqlite"
+  }
+}

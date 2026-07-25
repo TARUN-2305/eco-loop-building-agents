@@ -1,0 +1,43 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+env/
+ENV/
+.venv/
+
+# Testing & Coverage
+.pytest_cache/
+.coverage
+htmlcov/
+
+# EnergyPlus Outputs
+out/
+out_verify/
+*.eso
+*.rdd
+*.mdd
+*.eplusout
+*.htm
+*.csv
+*.xml
+*.audit
+*.bnd
+*.dxf
+
+# Databases & Dynamic Benchmarks
+*.sqlite
+*.duckdb
+data/*.sqlite
+data/*.duckdb
+data/bench_*.sqlite
+
+# IDE & OS
+.idea/
+.vscode/
+*.swp
+.DS_Store
+Thumbs.db
+*.zip
+*.exe

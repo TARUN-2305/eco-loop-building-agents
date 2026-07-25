@@ -1,0 +1,39 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "eco-loop-building-agents"
+version = "0.1.0"
+description = "Closed-loop building management using EnergyPlus and LLM agents via MCP"
+authors = [{ name = "Eco-Loop Team" }]
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "pyenergyplus>=26.2.0",
+    "eppy>=0.5.63",
+    "mcp>=1.0.0",
+    "duckdb>=0.9.0",
+    "pyyaml>=6.0",
+    "pydantic>=2.0",
+    "requests>=2.31.0"
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.4.0",
+    "pytest-asyncio>=0.21.0",
+    "hypothesis>=6.80.0",
+    "black>=23.0.0",
+    "ruff>=0.1.0"
+]
+
+[tool.pytest.ini_options]
+minversion = "7.0"
+addopts = "-ra -q"
+testpaths = [
+    "tests"
+]
+pythonpath = [
+    "."
+]
