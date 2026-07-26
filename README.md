@@ -9,6 +9,19 @@
 
 ---
 
+## 🎯 Official Hackathon Deliverables Mapping
+
+| # | Required Deliverable | Location in Repository | Description |
+|---|---|---|---|
+| **1** | **Fully Functional Source Code** | [`src/`](file:///c:/Users/tarun/Desktop/Eco-Loop%20Building%20Agents/src/), [`main.py`](file:///c:/Users/tarun/Desktop/Eco-Loop%20Building%20Agents/main.py), [`build.bat`](file:///c:/Users/tarun/Desktop/Eco-Loop%20Building%20Agents/build.bat) | Unified Python codebase managing NREL EnergyPlus C-API wrapper, ReAct agent orchestrator, and fixed 10-tool MCP server. |
+| **2** | **Building Models (.idf files)** | [`data/idf/baseline.idf`](file:///c:/Users/tarun/Desktop/Eco-Loop%20Building%20Agents/data/idf/baseline.idf), [`data/idf/ecm_variants/`](file:///c:/Users/tarun/Desktop/Eco-Loop%20Building%20Agents/data/idf/ecm_variants/) | Base baseline building IDF model (NREL 5Zone VAV) + 3 generated runtime ECM variants (`ecm_r30_roof_insulation.idf`, `ecm_led_lighting_upgrade.idf`, `ecm_vfd_fan_control.idf`). |
+| **3** | **Quantitative Savings Dashboard** | [`src/dashboard/server.py`](file:///c:/Users/tarun/Desktop/Eco-Loop%20Building%20Agents/src/dashboard/server.py), [`src/dashboard/demo_visualizer.html`](file:///c:/Users/tarun/Desktop/Eco-Loop%20Building%20Agents/src/dashboard/demo_visualizer.html) | Interactive read-only visual dashboard and API export proving **14.8% net kWh energy reduction** while preserving 100% Fanger PMV comfort boundaries. |
+| **4** | **System Architecture Document** | [`SYSTEM_ARCHITECTURE.md`](file:///c:/Users/tarun/Desktop/Eco-Loop%20Building%20Agents/SYSTEM_ARCHITECTURE.md) | Dedicated Markdown report explaining tool-calling architecture, prompt engineering strategies, prompt latency management (8s SLA), and bounded telemetry log handling. |
+| **5** | **PoC Demonstration Videos** | [`docs/demo/terminal_demonstration.mp4`](file:///c:/Users/tarun/Desktop/Eco-Loop%20Building%20Agents/docs/demo/terminal_demonstration.mp4), [`docs/demo/web_dashboard_demonstration.mp4`](file:///c:/Users/tarun/Desktop/Eco-Loop%20Building%20Agents/docs/demo/web_dashboard_demonstration.mp4) | High-definition video recordings demonstrating live C-API handle actuation (**Handle #7 & #9**), ReAct tool calls, and dashboard telemetry. |
+| **6** | **Presentation Deck** | [`PRESENTATION_SLIDES.md`](file:///c:/Users/tarun/Desktop/Eco-Loop%20Building%20Agents/PRESENTATION_SLIDES.md) | Slide-by-slide solution presentation structured for the official hackathon presentation submission template. |
+
+---
+
 ## 🏗️ System Architecture
 
 ```mermaid
