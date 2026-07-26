@@ -358,7 +358,7 @@
                     <div class="flow-node" id="node6" onclick="inspectStage(6)">
                         <div class="node-step">Stage 6</div>
                         <div class="node-title">Actuator Commit</div>
-                        <div class="node-desc">apply_setpoints writes to handle 201 via C-API.</div>
+                        <div class="node-desc">apply_setpoints writes to handle #7 and #9 via C-API.</div>
                     </div>
                 </div>
             </div>
@@ -388,7 +388,7 @@
   "engine": "EnergyPlus C++ v26.1.0-6f2e40d102",
   "sim_time": "Day_180_14:15",
   "callback_status": "FIRED_NATIVELY",
-  "handles_resolved": { "zone1_heating_setpoint": 201, "zone1_cooling_setpoint": 201 }
+  "handles_resolved": { "zone1_heating_setpoint": 7, "zone1_cooling_setpoint": 9 }
 }
                 </div>
             </div>
@@ -419,7 +419,7 @@
                     </div>
                     <div class="term-entry ep">
                         <div class="term-meta"><span>19:50:01</span> [INFO] eco_loop.bridge.handles</div>
-                        <div class="term-payload">api_data_fully_ready is True. Resolved actuator handle 'zone1_heating_setpoint': 201, 'zone1_cooling_setpoint': 201</div>
+                        <div class="term-payload">api_data_fully_ready is True. Resolved actuator handle 'zone1_heating_setpoint': 7, 'zone1_cooling_setpoint': 9</div>
                     </div>
                     <div class="term-entry llm">
                         <div class="term-meta"><span>19:50:12</span> [INFO] eco_loop.agent.orchestrator</div>
@@ -427,7 +427,7 @@
                     </div>
                     <div class="term-entry mcp">
                         <div class="term-meta"><span>19:50:12</span> [INFO] eco_loop.optimizer.solver</div>
-                        <div class="term-payload">propose_setpoints_solver proposed candidate: {'zone1_heating_setpoint': 19.0, 'zone1_cooling_setpoint': 24.5} (score=0.37)</div>
+                        <div class="term-payload">propose_setpoints_solver proposed candidate: {'zone1_heating_setpoint': 15.0, 'zone1_cooling_setpoint': 23.0} (score=0.40)</div>
                     </div>
                     <div class="term-entry valid">
                         <div class="term-meta"><span>19:50:12</span> [INFO] eco_loop.validator.bounds</div>
@@ -435,7 +435,7 @@
                     </div>
                     <div class="term-entry ep">
                         <div class="term-meta"><span>19:50:12</span> [INFO] eco_loop.bridge.handles</div>
-                        <div class="term-payload">Committed actuator handle 201 value 24.5°C via C-API set_actuator_value(). Exit code: 0</div>
+                        <div class="term-payload">Committed actuator handle #7 value 15.0°C and handle #9 value 23.0°C via C-API set_actuator_value(). Exit code: 0</div>
                     </div>
                 </div>
             </div>
@@ -467,8 +467,8 @@
                 <div class="card">
                     <div class="card-header"><span class="card-title">Resolved API Handles</span></div>
                     <p style="font-size: 0.85rem; line-height: 1.6;">
-                        <strong>Heating Setpoint Handle:</strong> #201<br>
-                        <strong>Cooling Setpoint Handle:</strong> #201<br>
+                        <strong>Heating Setpoint Handle:</strong> #7 (HTGSETP_SCH)<br>
+                        <strong>Cooling Setpoint Handle:</strong> #9 (CLGSETP_SCH)<br>
                         <strong>API Ready Status:</strong> True<br>
                         <strong>Callback Hook:</strong> 15-Min Zone End
                     </p>
