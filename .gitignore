@@ -42,3 +42,9 @@ Thumbs.db
 *.zip
 *.exe
 *.mp4
+
+!docs/demo/web_dashboard_demonstration.mp4
+!docs/demo/terminal_demonstration_part1.bin
+!docs/demo/terminal_demonstration_part2.bin
+!pdf_deliverables/*.pdf
+
