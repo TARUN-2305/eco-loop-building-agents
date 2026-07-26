@@ -198,3 +198,16 @@ class DashboardServer:
         if self._thread and self._thread.is_alive():
             self._thread.join(timeout=3.0)
         logger.info("Dashboard server stopped.")
+
+
+if __name__ == "__main__":
+    import time
+    server = DashboardServer(host="0.0.0.0", port=8080)
+    server.start()
+    print("Dashboard HTTP server running at http://localhost:8080 (Read-Only)")
+    print("Press Ctrl+C to stop.")
+    try:
+        while True:
+            time.sleep(1)
+    except KeyboardInterrupt:
+        server.stop()
