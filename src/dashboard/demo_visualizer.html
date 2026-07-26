@@ -282,9 +282,14 @@
             </div>
         </div>
 
-        <div class="status-pill">
-            <div class="pulse-dot"></div>
-            NREL C++ ENGINE ACTIVE (Exit Code 0)
+        <div style="display: flex; align-items: center; gap: 1rem;">
+            <button class="btn btn-cyan" id="autoTourBtn" onclick="runAutomatedVideoTour()" style="font-size: 0.9rem; padding: 0.55rem 1.35rem; box-shadow: 0 0 20px var(--cyan-glow); cursor: pointer;">
+                ▶ START AUTOMATED DEMO TOUR
+            </button>
+            <div class="status-pill">
+                <div class="pulse-dot"></div>
+                NREL C++ ENGINE ACTIVE (Exit Code 0)
+            </div>
         </div>
     </header>
 
@@ -680,6 +685,78 @@
                     }
                 }
             });
+        }
+
+        let isTourRunning = false;
+        function runAutomatedVideoTour() {
+            if (isTourRunning) return;
+            isTourRunning = true;
+            
+            const btn = document.getElementById('autoTourBtn');
+            btn.innerText = "⏳ AUTOMATED DEMO TOUR IN PROGRESS...";
+            btn.style.background = "linear-gradient(135deg, var(--amber-accent), #d97706)";
+            
+            // Activate Tab 1
+            activateTab('tab-flow');
+            
+            let stage = 1;
+            const stageTimer = setInterval(() => {
+                if (stage <= 6) {
+                    inspectStage(stage);
+                    stage++;
+                } else {
+                    clearInterval(stageTimer);
+                    
+                    // Switch to Tab 2: Terminal
+                    setTimeout(() => {
+                        activateTab('tab-terminal');
+                        const term = document.getElementById('fullTermLogs');
+                        if (term) term.scrollTop = term.scrollHeight;
+                        
+                        // Switch to Tab 3: Digital Twin
+                        setTimeout(() => {
+                            activateTab('tab-digitaltwin');
+                            
+                            // Switch to Tab 4: Safety
+                            setTimeout(() => {
+                                activateTab('tab-safety');
+                                
+                                // Switch to Tab 5: Analytics
+                                setTimeout(() => {
+                                    activateTab('tab-analytics');
+                                    
+                                    // Complete Tour
+                                    setTimeout(() => {
+                                        activateTab('tab-flow');
+                                        inspectStage(1);
+                                        btn.innerText = "✅ DEMO TOUR COMPLETE (CLICK TO REPEAT)";
+                                        btn.style.background = "linear-gradient(135deg, var(--emerald-accent), #059669)";
+                                        isTourRunning = false;
+                                    }, 4000);
+                                }, 3500);
+                            }, 3500);
+                        }, 3500);
+                    }, 3500);
+                }
+            }, 2500);
+        }
+
+        function activateTab(tabId) {
+            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+            document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+            
+            const content = document.getElementById(tabId);
+            if (content) content.classList.add('active');
+            
+            const btnMap = {
+                'tab-flow': 0, 'tab-terminal': 1, 'tab-digitaltwin': 2, 'tab-safety': 3, 'tab-analytics': 4
+            };
+            const btns = document.querySelectorAll('.tab-btn');
+            if (btns[btnMap[tabId]]) btns[btnMap[tabId]].classList.add('active');
+
+            if (tabId === 'tab-analytics') {
+                setTimeout(renderAnalyticsChart, 100);
+            }
         }
     </script>
 </body>
