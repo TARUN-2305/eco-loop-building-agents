@@ -53,7 +53,16 @@ def run_stage_2_ecm_sweep():
     
     try:
         from src.idf_tools.ecm_sweep import generate_ecm_variants
-        variants = generate_ecm_variants(base_idf_path="data/idf/baseline.idf", output_dir="data/idf/ecm_variants")
+        ecm_defs = [
+            {"name": "ecm_r30_roof_insulation", "modifications": []},
+            {"name": "ecm_led_lighting_upgrade", "modifications": []},
+            {"name": "ecm_vfd_fan_control", "modifications": []},
+        ]
+        variants = generate_ecm_variants(
+            baseline_idf_path="data/idf/baseline.idf",
+            ecm_definitions=ecm_defs,
+            output_dir="data/idf/ecm_variants",
+        )
         for path in variants:
             size_kb = round(os.path.getsize(path) / 1024.0, 1)
             print(f"  └─ Generated ECM Variant: {os.path.basename(path):<32} ({size_kb} KB)")
